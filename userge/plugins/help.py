@@ -51,8 +51,9 @@ async def helpme(message: Message) -> None:  # pylint: disable=missing-function-
             if cat == "plugins":
                 continue
             out_str += (f"    {_CATEGORY.get(cat, '📁')} <b>{cat}</b> "
-                        f"(<code>{len(cat_plugins[cat])}</code>) :   <code>"
-                        + "</code>    <code>".join(sorted(cat_plugins[cat])) + "</code>\n\n")
+                        f"(<code>{len(cat_plugins[cat])}</code>) :   <code>" +
+                        "</code>    <code>".join(sorted(cat_plugins[cat])) +
+                        "</code>\n━─━─━─━─━─━─━─━─━─━─━\n")
         out_str += f"""📕 <b>Usage:</b>  <code>{Config.CMD_TRIGGER}help [plugin_name]</code>"""
     else:
         key = message.input_str
@@ -61,13 +62,14 @@ async def helpme(message: Message) -> None:  # pylint: disable=missing-function-
                 and (len(plugins[key].enabled_commands) > 1
                      or plugins[key].enabled_commands[0].name.lstrip(Config.CMD_TRIGGER) != key)):
             commands = plugins[key].enabled_commands
-            out_str = f"""⚔ <b><u>(<code>{len(commands)}</code>) Command(s) Available</u></b>
+            out_str = f"""⚔ <b><u>(<code>{len(commands)}</code>) Command(s) Available\n━─━─━─━─━─━─━─━─━─━─━</u></b>
 
-🔧 <b>Plugin:</b>  <code>{key}</code>
-📘 <b>Doc:</b>  <code>{plugins[key].doc}</code>\n\n"""
+🔧 <b>Plugin:</b>  <code>{key}</code>🔥
+📘 <b>Doc:</b>  <code>{plugins[key].doc}</code>\n━─━─━─━─━─━─━─━─━─━─━\n"""
             for i, cmd in enumerate(commands, start=1):
-                out_str += (f"    🤖 <b>cmd(<code>{i}</code>):</b>  <code>{cmd.name}</code>\n"
-                            f"    📚 <b>info:</b>  <i>{cmd.doc}</i>\n\n")
+                out_str += (
+                    f"╭━━━━━━━━━━━━━━━━━━━━╮\n    🤖 <b>cmd(<code>{i}</code>):</b>  <code>{cmd.name}</code>\n"
+                    f"    📚 <b>info:</b>  <i>{cmd.doc}</i>\n╰━━━━━━━━━━━━━━━━━━━━╯\n")
             out_str += f"""📕 <b>Usage:</b>  <code>{Config.CMD_TRIGGER}help [command_name]</code>"""
         else:
             commands = userge.manager.enabled_commands
@@ -129,7 +131,7 @@ if userge.has_bot:
             await callback_query.answer("you are in main menu", show_alert=True)
             return
         if len(pos_list) == 2:
-            text = "🖥 **Userge Main Menu** 🖥"
+            text = "🖥 **X-Userge Main Menu** 🖥"
             buttons = main_menu_buttons()
         elif len(pos_list) == 3:
             text, buttons = category_data(cur_pos)
@@ -353,15 +355,15 @@ if userge.has_bot:
                 input_message_content=InputTextMessageContent(
                     "**Here's how to setup Userge** 😎"
                 ),
-                url="https://github.com/UsergeTeam/Userge",
+                url="https://github.com/X-Newbie/X-Userge",
                 description="Setup Your Own",
                 thumb_url="https://imgur.com/download/Inyeb1S",
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
                             InlineKeyboardButton(
-                                "🧰 Userge Repo",
-                                url="https://github.com/UsergeTeam/Userge"),
+                                "🧰 X-Userge Repo",
+                                url="https://github.com/X-Newbie/X-Userge"),
                             InlineKeyboardButton(
                                 "🖥 Deploy Userge",
                                 url=("https://heroku.com/deploy?template="
@@ -377,7 +379,7 @@ if userge.has_bot:
                     id=uuid4(),
                     title="Main Menu",
                     input_message_content=InputTextMessageContent(
-                        "🖥 **Userge Main Menu** 🖥"
+                        "🖥 **X-Userge Main Menu** 🖥"
                     ),
                     url="https://github.com/UsergeTeam/Userge",
                     description="Userge Main Menu",
