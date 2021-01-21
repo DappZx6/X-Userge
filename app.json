@@ -1,15 +1,15 @@
 {
     "name": "Userge",
     "description": "telegram pluggable userbot",
-    "logo": "https://imgur.com/download/Inyeb1S",
+    "logo": "https://telegra.ph/file/990b684118df39e7e5716.jpg",
     "keywords": [
         "userge",
         "telegram",
         "pluggable",
         "userbot"
     ],
-    "repository": "https://github.com/UsergeTeam/Userge",
-    "website": "https://github.com/Userge",
+    "repository": "https://github.com/X-Newbie/X-Userge",
+    "website": "https://github.com/X-Newbie",
     "success_url": "https://t.me/theUserge",
     "env": {
         "API_ID": {"description": "Get this value from https://my.telegram.org"},
@@ -17,8 +17,44 @@
         "DATABASE_URL": {"description": "Mongodb url from https://cloud.mongodb.com/"},
         "LOG_CHANNEL_ID": {"description": "Telegram Log Channel ID"},
         "HU_STRING_SESSION": {
-            "description": "[USER MODE] - Get this using `bash genStr`",
+            "description": "[USER MODE] - Get this using '@genStr_Bot' or `bash genStr`",
             "required": false},
+        "LOAD_UNOFFICIAL_PLUGINS": {
+            "description": "Set True if your like to use unofficial plugins",
+            "required": false
+        },
+        "OCR_SPACE_API_KEY": {
+            "description": "get OCR API key from 'http://eepurl.com/bOLOcf'",
+            "required": false
+        },
+        "WEATHER_DEFCITY": {
+            "description": "add default city for weather",
+            "required": false
+        },
+        "OPEN_WEATHER_MAP": {
+            "description": "Weather API get it from 'https://openweathermap.org/",
+            "required": false
+        },
+        "SPAM_WATCH_API": {
+            "description": "SpamWatch API get it from @SpamWatch in Telegram",
+            "required": false
+        },
+        "UPSTREAM_REPO": {
+            "description": "set this to your USERGE fork on GitHub",
+            "required": false
+        },
+        "CMD_TRIGGER": {
+            "description": "set command prefix",
+            "required": false
+        },
+        "SUDO_TRIGGER": {
+            "description": "set command prefix for SUDO users",
+            "required": false
+        },
+        "REMOVE_BG_API_KEY": {
+            "description": "RemoveBg API Key get it from https://www.remove.bg/api",
+            "required": false
+        },
         "BOT_TOKEN": {
             "description": "[BOT MODE] - Get this from https://t.me/botfather",
             "required": false},
